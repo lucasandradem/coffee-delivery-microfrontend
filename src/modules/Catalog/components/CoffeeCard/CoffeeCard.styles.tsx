@@ -73,7 +73,7 @@ export const Footer = styled.div`
   margin-bottom: 16px;
 
   strong {
-    font-size: 20px;
+    font-size: 16px;
     text-align: right;
     color: #574f4d;
   }
@@ -95,7 +95,7 @@ export const CoffeAmout = styled.div`
     color: #8047f8;
     cursor: pointer;
   }
-  span {
+  p {
     margin: 0 8px;
   }
 `;

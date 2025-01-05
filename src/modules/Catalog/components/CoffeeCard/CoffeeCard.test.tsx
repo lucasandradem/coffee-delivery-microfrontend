@@ -53,7 +53,7 @@ describe("CoffeeCard", () => {
     const user = userEvent.setup();
     const quantityElement = screen.queryByText(/1/i);
 
-    const increaseButtonElement = screen.getByRole("button", { name: "+" });
+    const increaseButtonElement = screen.getByRole("button", { name: /add/i });
 
     expect(increaseButtonElement).toBeInTheDocument();
 
@@ -66,7 +66,9 @@ describe("CoffeeCard", () => {
     const user = userEvent.setup();
     const quantityElement = screen.getByText(/1/i);
 
-    const decreaseButtonElement = screen.getByRole("button", { name: /-/i });
+    const decreaseButtonElement = screen.getByRole("button", {
+      name: /remove/i,
+    });
     expect(decreaseButtonElement).toBeInTheDocument();
 
     await user.click(decreaseButtonElement);

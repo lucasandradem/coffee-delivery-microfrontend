@@ -1,11 +1,11 @@
-import { Catalog } from "./modules/Catalog/Catalog";
+import { HomePage } from "./modules/HomePage/HomePage";
 import { GlobalStyle } from "./styles/globalStyles";
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <Catalog />;
+      <HomePage />;
     </>
   );
 }

@@ -7,7 +7,6 @@ export const Icon = styled.span<IconStyledProps>`
     color: ${$color ? $color : "#000"};
     font-size: ${$size ? $size : "24px"};
     background-color: ${$fillColor ? $fillColor : "transparent"};
-    padding: ${$fill ? "12px" : "0"};
     border-radius: ${$fill ? "8px" : "0"};
   `}
 `;

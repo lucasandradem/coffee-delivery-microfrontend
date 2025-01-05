@@ -5,8 +5,6 @@ export function useCoffeeCard(amount: number) {
 
   function handleIncrease() {
     if (quantity < amount) {
-      console.log("quantity", quantity);
-
       setQuantity((prevState) => prevState + 1);
     }
   }

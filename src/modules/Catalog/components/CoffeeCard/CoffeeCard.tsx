@@ -6,7 +6,6 @@ import { useCoffeeCard } from "./useCoffeeCard";
 export function CoffeeCard(coffee: CoffeeCardProps) {
   const { image, name, description, price, types, amount } = coffee;
   const { quantity, handleDecrease, handleIncrease } = useCoffeeCard(amount);
-  console.log("coffee", quantity);
 
   return (
     <S.Container>
@@ -26,12 +25,16 @@ export function CoffeeCard(coffee: CoffeeCardProps) {
           R$ <strong>{price}</strong>
         </p>
         <S.CoffeAmout>
-          <button onClick={handleDecrease}>-</button>
-          <span>{quantity}</span>
-          <button onClick={handleIncrease}>+</button>
+          <button onClick={handleDecrease}>
+            <Icon name="remove" size="14px" color="#4b2995" />
+          </button>
+          <p>{quantity}</p>
+          <button onClick={handleIncrease}>
+            <Icon name="add" size="14px" color="#4b2995" />
+          </button>
         </S.CoffeAmout>
         <S.Cart>
-          <Icon name="shopping_cart" size="24px" color="#fff" />
+          <Icon name="shopping_cart" fill color="#fff" />
         </S.Cart>
       </S.Footer>
     </S.Container>
