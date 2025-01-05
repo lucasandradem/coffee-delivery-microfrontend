@@ -1,28 +1,19 @@
-import { useState } from "react";
 import { Icon } from "../../../../components/Icon";
-import * as S from "./CoffeCard.styles";
-import { CoffeCardProps } from "./CoffeCard.types";
+import * as S from "./CoffeeCard.styles";
+import { CoffeeCardProps } from "./CoffeeCard.types";
+import { useCoffeeCard } from "./useCoffeeCard";
 
-export function CoffeCard(coffee: CoffeCardProps) {
+export function CoffeeCard(coffee: CoffeeCardProps) {
   const { image, name, description, price, types, amount } = coffee;
-  const [quantity, setQuantity] = useState(0);
-
-  function handleIncrease(amount: number) {
-    if (quantity < amount) {
-      setQuantity((state) => state + 1);
-    }
-  }
-
-  function handleDecrease() {
-    if (quantity > 0) setQuantity((state) => state - 1);
-  }
+  const { quantity, handleDecrease, handleIncrease } = useCoffeeCard(amount);
+  console.log("coffee", quantity);
 
   return (
     <S.Container>
-      <img src={image} />
+      <img src={image} alt={name} />
       <S.CoffeType>
-        {types.map((type) => (
-          <span>{type}</span>
+        {types.map((type, index) => (
+          <span key={index}>{type}</span>
         ))}
       </S.CoffeType>
       <S.Info>
@@ -37,7 +28,7 @@ export function CoffeCard(coffee: CoffeCardProps) {
         <S.CoffeAmout>
           <button onClick={handleDecrease}>-</button>
           <span>{quantity}</span>
-          <button onClick={() => handleIncrease(amount)}>+</button>
+          <button onClick={handleIncrease}>+</button>
         </S.CoffeAmout>
         <S.Cart>
           <Icon name="shopping_cart" size="24px" color="#fff" />

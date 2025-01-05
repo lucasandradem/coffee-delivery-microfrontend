@@ -1,4 +1,4 @@
-export interface CoffeCardProps {
+export interface CoffeeCardProps {
   id: number;
   name: string;
   description: string;

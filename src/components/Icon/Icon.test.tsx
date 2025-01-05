@@ -1,10 +1,15 @@
 import { render, screen } from "@testing-library/react";
-import App from "./App";
+import { describe, expect, it } from "vitest";
+import { Icon } from "./Icon";
 
 describe("App", () => {
-  it("renders the App component", () => {
-    render(<App />);
+  it("renders the Icon component", () => {
+    render(<Icon name="home" />);
 
-    screen.debug(); // prints out the jsx in the App component unto the command line
+    const iconName = screen.getByText(/home/i);
+    const iconElement = screen.getByRole("icon");
+
+    expect(iconName).toBeInTheDocument();
+    expect(iconElement).toBeInTheDocument();
   });
 });

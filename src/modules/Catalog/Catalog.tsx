@@ -1,26 +1,10 @@
-import { useEffect, useState } from "react";
-
-import { api } from "../../service/api";
 import * as S from "./Catalog.styles";
 import { CoffeeProps } from "./Catalog.types";
-import { CoffeCard } from "./components/CoffeCard/CoffeCard";
+import { CoffeeCard } from "./components/CoffeeCard/CoffeeCard";
+import { useCatalog } from "./useCatalog";
 
 export function Catalog() {
-  const [coffees, setCoffees] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    api
-      .get("/coffees")
-      .then((response) => {
-        setCoffees(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => setIsLoading(false));
-  }, []);
-
+  const { coffees, isLoading } = useCatalog();
   return (
     <S.Container>
       <h2>Nossos cafés</h2>
@@ -28,7 +12,7 @@ export function Catalog() {
         {isLoading && <p>Carregando...</p>}
 
         {coffees.map((coffee: CoffeeProps) => (
-          <CoffeCard
+          <CoffeeCard
             key={coffee.id}
             id={Number(coffee.id)}
             name={coffee.name}
